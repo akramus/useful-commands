@@ -7,4 +7,7 @@ Delete branches that no more exist on remote
 ## netstat
 
 To list the TCP ports that are being listened on
-> netstat -plnt
+> sudo netstat -plnt
+
+To list all listennig ports (tcp and upd)
+> sudo netstat -ltup
