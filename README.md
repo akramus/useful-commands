@@ -116,3 +116,15 @@ Useful options :
     -nocerts = Not extract certificated
     -clcerts = Extract only final certificate
     -cacerts = Extract only AC certificates  
+    
+    
+Display exposed certificat by server  
+> openssl s_client -connect hostname:port -showcerts
+ 
+The result is orgnized in multiple sections 
+- SSL/TLS connection status summary.
+- Server certificat and it AC displayed in  PEM/base64 foramt (section Certificate chain).
+- Certificae name and AC that genertaes the certificate (section Server certificate).
+- Trust AC list names  to de authenticate client certificates  (section Acceptable client certificate CA names).
+- Other SSl/TLS parameters(sections Client Certificate Types, Requested Signature Algorithms, Shared Requested Signature Algorithms, Peer signing digest, Server Temp Key).
+- SSL/TLS detailed connection status.
