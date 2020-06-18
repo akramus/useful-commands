@@ -98,20 +98,21 @@ with :
     CA_File = file containing all tous AC certificates used to check a format (base64) concatened
 
 Create a keystore PKCS#12
-> openssl pkcs12 -export -inkey fichier_cle -in fichier_certificat -chain -CAfile fichier_chaine_de_certification -name alias_certificat -out fichier_pkcs12
+> openssl pkcs12 -export -inkey key_file -in certificate_file -chain -CAfile CA_file -name alias_certificate -out file_pkcs12
 
 with :
 
-    fichier_chaine_de_certification = fichier contenant tous les certificats d'AC de la chaîne de certification (base64) concaténés
-    alias_certificat = nom arbitraire pour identifier le certificat dans le keystore (ce nom sera utile pour importer le keystore PKCS#12 produit dans un keystore JKS avec la commande keytool)
+    CA_file = file containing all certificates AC (base64) concatened
+    alias_certificate = name to pour indentify  certificate in keystore (
 
-Lister un keystore PKCS#12
-openssl pkcs12 -in fichier_pkcs12
+Display a keystore PKCS#12
 
-Options utiles :
+> openssl pkcs12 -in fichier_pkcs12
 
-    -nodes = ne pas chiffrer la clé privée extraite
-    -nokeys = ne pas extraire la clé privée
-    -nocerts = ne pas extraire les certificats
-    -clcerts = n'extraire que le certificat final
-    -cacerts = n'extraire que les certificats d'AC de la chaine de certification    
+Useful options :
+
+    -nodes = Not encrypt private key 
+    -nokeys = Not extract private key 
+    -nocerts = Not extract certificated
+    -clcerts = Extract only final certificate
+    -cacerts = Extract only AC certificates  
