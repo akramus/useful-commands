@@ -119,6 +119,7 @@ Useful options :
     
     
 Display exposed certificat by server  
+
 > openssl s_client -connect hostname:port -showcerts
  
 The result is orgnized in multiple sections 
@@ -128,3 +129,33 @@ The result is orgnized in multiple sections
 - Trust AC list names  to de authenticate client certificates  (section Acceptable client certificate CA names).
 - Other SSl/TLS parameters(sections Client Certificate Types, Requested Signature Algorithms, Shared Requested Signature Algorithms, Peer signing digest, Server Temp Key).
 - SSL/TLS detailed connection status.
+
+## Keytool
+
+Display a certificate
+
+> keytool -printcert -file fichier_certificat
+
+Display keystore content
+> keytool -list -keystore fichier_keystore
+
+Options  :
+    - storetype to define keystore type: JKS (defult value), PKCS12, JCEKS
+    - v detail in text format
+    - rfc PEM format
+
+Exporter a certificat from a JKS keystore
+
+> keytool -exportcert -keystore fichier_keystore_jks -alias alias_certificat -file fichier_certificat
+
+Exporter a PKCS#12 keystore from  JKS keystore
+
+> keytool -importkeystore -srckeystore fichier_keystore_jks -destkeystore fichier_keystore_pkcs12 -srcstoretype JKS -deststoretype PKCS12 -srcalias alias_cle_privee -destalias alias_cle_privee
+
+Import a certificate JKS keystore 
+
+> keytool -importcert -noprompt -trustcacerts -keystore fichier_keystore_jks -alias alias_certificat -file fichier_certificat
+
+Imoort a keystore PKCS#12 keystore  into JKS keystore
+
+> keytool -importkeystore -srckeystore fichier_keystore_pkcs12 -destkeystore fichier_keystore_jks -srcstoretype PKCS12 -deststoretype JKS -srcalias alias_cle_privee -destalias alias_cle_privee
