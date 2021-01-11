@@ -161,3 +161,6 @@ Import a certificate JKS keystore
 Imoort a keystore PKCS#12 keystore  into JKS keystore
 
 > keytool -importkeystore -srckeystore fichier_keystore_pkcs12 -destkeystore fichier_keystore_jks -srcstoretype PKCS12 -deststoretype JKS -srcalias alias_cle_privee -destalias alias_cle_privee
+
+Create a trustore
+> keytool -import -file certificate -alias firstCA -keystore myTrustStore
