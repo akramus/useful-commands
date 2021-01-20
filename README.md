@@ -164,3 +164,7 @@ Imoort a keystore PKCS#12 keystore  into JKS keystore
 
 Create a trustore
 > keytool -import -file certificate -alias firstCA -keystore myTrustStore
+
+## tools
+checksum  and encode in base 64
+> md5sum -t Makefile |awk '{print $1}'|base64.exe 
