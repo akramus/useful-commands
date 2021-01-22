@@ -31,6 +31,8 @@ Decode  base64 fichier file
 Useful options :
     -A = decode a base64 string without lines break every 64 caracters
 
+file sha-1 encode base64
+> openssl sha1 -binary file | base64 
 
 Create RSA key
 > openssl genrsa key_length >key_file
