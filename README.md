@@ -99,7 +99,7 @@ Check a certificat with CA file
 
 with :
 
-    CA_File = file containing all tous AC certificates used to check a format (base64) concatened
+    CA_File = file containing all  AC certificates used to check a format (base64) concatened
 
 Create a keystore PKCS#12
 > openssl pkcs12 -export -inkey key_file -in certificate_file -chain -CAfile CA_file -name alias_certificate -out file_pkcs12
@@ -107,7 +107,7 @@ Create a keystore PKCS#12
 with :
 
     CA_file = file containing all certificates AC (base64) concatened
-    alias_certificate = name to pour indentify  certificate in keystore (
+    alias_certificate = name to  indentify  certificate in keystore (
 
 Display a keystore PKCS#12
 
